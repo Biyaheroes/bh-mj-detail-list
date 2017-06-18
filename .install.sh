@@ -2,6 +2,7 @@ yarn add \
 babel-runtime \
 bh-mj-detail \
 doubt \
+filpos \
 jquery \
 mjml \
 mjml-column \
@@ -51,6 +52,7 @@ yargs \
 bower install \
 bh-mj-detail \
 doubt \
+filpos \
 jquery \
 nbyx \
 parseon \

@@ -894,9 +894,9 @@ beeper@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/beeper/-/beeper-1.1.1.tgz#e6d5ea8c5dad001304a70b22638447f69cb2f809"
 
-bh-mj-detail@^0.0.0:
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/bh-mj-detail/-/bh-mj-detail-0.0.0.tgz#2104ffceadf26170fa1b0f5d47b537379ff2e727"
+bh-mj-detail@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/bh-mj-detail/-/bh-mj-detail-0.1.0.tgz#3680ec241d4d8b40cb10c73a05d84d0799c91119"
   dependencies:
     babel-runtime "^6.23.0"
     jquery "^3.2.1"
@@ -1086,8 +1086,8 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000686"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000686.tgz#d55b479ed6e6402c1fd3f1fd8f46e694d86ea464"
+  version "1.0.30000690"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000690.tgz#ee4e0750070f6aae6f40e76477984449bd6cb48a"
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -2001,6 +2001,15 @@ filled@^0.22.0:
     arkount "^0.8.0"
     babel-runtime "^6.23.0"
     doubt "^0.27.0"
+
+filpos@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/filpos/-/filpos-0.0.0.tgz#40e63c15c6c1ecd2c92d9c87fd617285669c8603"
+  dependencies:
+    babel-runtime "^6.23.0"
+    doubt "^0.27.0"
+    falzy "^0.20.0"
+    protype "^0.22.0"
 
 finalhandler@~1.0.3:
   version "1.0.3"
@@ -5678,8 +5687,8 @@ ua-parser-js@^0.7.9:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
 
 uglify-js@3.0.x, uglify-js@^3.0.5:
-  version "3.0.17"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.17.tgz#d228cd55c2df9b3d2f53f147568cb4cc4a72cc06"
+  version "3.0.18"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.18.tgz#d67a3e5a0a08356b787fb1c9bddf3a807630902e"
   dependencies:
     commander "~2.9.0"
     source-map "~0.5.1"

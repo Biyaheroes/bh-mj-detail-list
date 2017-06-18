@@ -69,6 +69,7 @@ import Text from "mjml-text";
 import Wrapper from "mjml-wrapper";
 
 import doubt from "doubt";
+import filpos from "filpos";
 import nbyx from "nbyx";
 import parseon from "parseon";
 import protype from "protype";
@@ -83,6 +84,7 @@ const endingTag = false;
 const defaultMJMLDefinition = {
 	"content": "",
 	"attributes": {
+		"count": 3,
 		"list": [ {
 			"title": "Title",
 			"value": "Value"
@@ -93,31 +95,45 @@ const defaultMJMLDefinition = {
 @MJMLElement
 class DetailList extends Component {
 	render( ){
-		const { mjAttribute, renderWrappedOutlookChildren } = this.props;
+		const { mjAttribute } = this.props;
 
 		let list = mjAttribute( "list" );
+
+		let count = 3;
+		try{
+			count = parseInt( mjAttribute( "count" ) || "3" );
+
+		}catch( error ){
+			count = 3;
+		}
 
 		if( protype( list, STRING ) ){
 			try{
 				list = parseon( sxty4( list ).decode( ) );
 
 			}catch( error ){
+				error = sxty4( error.stack ).encode( );
+				let length = error.length;
+				error = error
+					.match( new RegExp( `.{1,${ Math.floor( Math.sqrt( length ) ) }}`, "g" ) )
+					.join( "\n" );
+
 				return ( <Section
 							{ ...this.props }
 						>
 							<Column>
 								{
-									renderWrappedOutlookChildren( [
-										<Text>
+									[
+										<Text key="prompt">
 											{ "Sorry, there's something wrong with the details. Please report this immediately." }
 										</Text>,
-										<Text>
-											{ `Error, ${ sxty4( error.stack ).encode( ) }` }
+										<Text key="error">
+											{ `Error: ${ error }` }
 										</Text>,
-										<Text>
-											{ `Timestamp, ${ Date.now( ) }` }
+										<Text key="timestamp">
+											{ `Timestamp: ${ new Date( ) }` }
 										</Text>
-									] )
+									]
 								}
 							</Column>
 						</Section> );
@@ -136,7 +152,8 @@ class DetailList extends Component {
 					</Section> );
 		}
 
-		list = nbyx( list, 3 );
+		list = nbyx( list, count )
+			.map( ( row ) => filpos( row, 3, { "title": "", "label": "", "value": "" } ) );
 
 		return ( <Wrapper
 					{ ...this.props }
@@ -144,22 +161,23 @@ class DetailList extends Component {
 					full-width="full-width"
 				>
 					{
-						renderWrappedOutlookChildren( list.map( function onEachRow( row, index ){
+						list.map( function onEachRow( row, index ){
 							return ( <Section
 										key={ `row-${ index }` }
 										padding="0px 0px 0px 0px"
 									>
 										{
-											renderWrappedOutlookChildren( row.map( function onEachDetail( detail, index ){
+											row.map( function onEachDetail( detail, index ){
 												return ( <Detail
 															{ ...detail }
 															key={ `detail-${ index }` }
+															count={ 3 }
 														>
 														</Detail> );
-											} ) )
+											} )
 										}
 									</Section> );
-						} ) )
+						} )
 					}
 				</Wrapper> );
 	}
