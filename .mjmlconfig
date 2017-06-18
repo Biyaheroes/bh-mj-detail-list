@@ -1,0 +1,6 @@
+{
+	"packages": [
+		"./node_modules/bh-mj-detail/detail.js",
+		"./detail-list.js"
+	]
+}

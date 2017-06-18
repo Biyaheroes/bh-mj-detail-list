@@ -1,0 +1,6 @@
+{
+	"presets": [ "latest", "react" ],
+	"plugins": [ "transform-runtime", "transform-decorators-legacy" ],
+	"sourceMaps": "both",
+	"retainLines": true
+}

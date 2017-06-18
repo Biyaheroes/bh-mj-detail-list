@@ -1,0 +1,9 @@
+<mjml>
+	<mj-body>
+		<mj-container>
+			<mj-detail-list
+				list=""
+			/>
+		</mj-container>
+	</mj-body>
+</mjml>
