@@ -1,0 +1,14 @@
+.*/
+bower_components
+node_modules
+*/*.js
+*/*.css
+*.js
+*.css
+*.log
+*.log.*
+!.*.js
+!gulpfile.js
+!webpack.config.js
+!*.support.js
+!*.deploy.js
