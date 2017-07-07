@@ -1,6 +1,6 @@
 {
   "name": "bh-mj-detail-list",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Biyaheroes MJML Detail List Component.",
   "main": "detail-list.deploy.js",
   "support": "detail-list.support.js",
@@ -26,15 +26,26 @@
     "test",
     "tests"
   ],
+  "resolutions": {
+    "arid": "^0.28.0",
+    "doubt": "^0.29.0",
+    "wichevr": "^0.12.0",
+    "arkount": "^0.10.0",
+    "raze": "^0.32.0"
+  },
   "dependencies": {
-    "bh-mj-detail": "^0.1.0",
-    "doubt": "^0.27.0",
-    "filpos": "^0.0.0",
+    "arid": "^0.28.0",
+    "bh-mj-detail": "^0.6.0",
+    "bh-mj-issue": "^0.0.0",
+    "bh-mj-prompt": "^0.0.0",
+    "booleanize": "^0.1.0",
+    "doubt": "^0.29.0",
+    "filpos": "^0.1.0",
     "jquery": "^3.2.1",
-    "nbyx": "^0.0.0",
+    "nbyx": "^0.1.0",
     "parseon": "^0.8.0",
-    "protype": "^0.22.0",
+    "react": "^15.6.1",
     "sxty4": "^0.10.0",
-    "react": "^15.6.1"
+    "wichevr": "^0.12.0"
   }
 }

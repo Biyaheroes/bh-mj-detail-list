@@ -4,9 +4,10 @@ const llamalize = require( "llamalize" );
 const path = require( "path" );
 const webpack = require( "webpack" );
 
-const HotModuleReplacementPlugin = webpack.HotModuleReplacementPlugin;
-const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const BowerResolvePlugin = require( "bower-resolve-webpack-plugin" );
+const HotModuleReplacementPlugin = webpack.HotModuleReplacementPlugin;
+const ModuleConcatenationPlugin = webpack.optimize.ModuleConcatenationPlugin;
+const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 const mode = process.env.NODE_ENV;
 const directory = process.cwd( );
@@ -67,7 +68,9 @@ module.exports = function build( parameter ){
 				"mangle": false
 			} ) : null ),
 
-			( mode === "test"? new HotModuleReplacementPlugin( ) : null )
+			( mode === "test"? new HotModuleReplacementPlugin( ) : null ),
+
+			new ModuleConcatenationPlugin( )
 		].filter( ( plugin ) => { return !!plugin; } ),
 
 		"devtool": "#source-map",

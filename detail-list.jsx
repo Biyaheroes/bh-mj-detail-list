@@ -50,30 +50,46 @@
 
 	@include:
 		{
-			"MJMLElement": "mjml-core",
-			"React": "react",
+			"arid": "arid",
+			"booleanize": "booleanize",
 			"Component": "react.Component",
 			"Column": "mjml-column",
 			"Detail": "bh-mj-detail",
-			"Section": "mjml-section"
+			"doubt": "doubt",
+			"filpos": "filpos",
+			"Issue": "bh-mj-issue",
+			"MJMLElement": "mjml-core",
+			"nbyx": "nbyx",
+			"parseon": "parseon",
+			"Prompt": "bh-mj-prompt",
+			"React": "react",
+			"Section": "mjml-section",
+			"sxty4": "sxty4",
+			"Wrapper": "mjml-wrapper",
+			"wichevr": "wichevr"
 		}
 	@end-include
 */
 
-import { MJMLElement } from "mjml-core";
 import React, { Component } from "react";
-import Column from "mjml-column";
-import Detail from "bh-mj-detail";
+
+import { MJMLElement } from "mjml-core";
+
 import Section from "mjml-section";
-import Text from "mjml-text";
 import Wrapper from "mjml-wrapper";
 
+import Detail from "bh-mj-detail";
+import Issue from "bh-mj-issue";
+import Prompt from "bh-mj-prompt";
+
+import arid from "arid";
+import booleanize from "booleanize";
 import doubt from "doubt";
 import filpos from "filpos";
 import nbyx from "nbyx";
 import parseon from "parseon";
-import protype from "protype";
 import sxty4 from "sxty4";
+import wichevr from "wichevr";
 
 const tagName = "mj-detail-list";
 
@@ -84,11 +100,12 @@ const endingTag = false;
 const defaultMJMLDefinition = {
 	"content": "",
 	"attributes": {
+		"list": [ ],
 		"count": 3,
-		"list": [ {
-			"title": "Title",
-			"value": "Value"
-		} ]
+		"align": "left",
+		"reverse": false,
+		"background-color": "white",
+		"foreground-color": "black"
 	},
 };
 
@@ -97,81 +114,68 @@ class DetailList extends Component {
 	render( ){
 		const { mjAttribute } = this.props;
 
-		let list = mjAttribute( "list" );
+		let { list, count, align, reverse, backgroundColor, foregroundColor } = this.props;
 
-		let count = 3;
+		list = wichevr( list, mjAttribute( "list" ) );
+
+		if( typeof list == "string" ){
+			try{
+				list = parseon( sxty4( list ).decode( ) );
+
+			}catch( error ){
+				return ( <Issue error={ error }></Issue> )
+			}
+		}
+
+		if( !doubt( list, ARRAY ) || arid( list ) ){
+			return ( <Prompt
+						message="Sorry, there's no detail list to be shown"
+						backgroundColor="#227ee5"
+						foregroundColor="white"
+						sideColor="#1758a0"
+					>
+					</Prompt> );
+		}
+
 		try{
-			count = parseInt( mjAttribute( "count" ) || "3" );
+			count = parseInt( wichevr( count, mjAttribute( "count" ) ) );
 
 		}catch( error ){
 			count = 3;
 		}
 
-		if( protype( list, STRING ) ){
-			try{
-				list = parseon( sxty4( list ).decode( ) );
+		list = nbyx( list, count ).map( ( row ) => filpos( row, 3, { "title": "", "label": "", "value": "" } ) );
 
-			}catch( error ){
-				error = sxty4( error.stack ).encode( );
-				let length = error.length;
-				error = error
-					.match( new RegExp( `.{1,${ Math.floor( Math.sqrt( length ) ) }}`, "g" ) )
-					.join( "\n" );
+		align = wichevr( align, mjAttribute( "align" ) );
 
-				return ( <Section
-							{ ...this.props }
-						>
-							<Column>
-								{
-									[
-										<Text key="prompt">
-											{ "Sorry, there's something wrong with the details. Please report this immediately." }
-										</Text>,
-										<Text key="error">
-											{ `Error: ${ error }` }
-										</Text>,
-										<Text key="timestamp">
-											{ `Timestamp: ${ new Date( ) }` }
-										</Text>
-									]
-								}
-							</Column>
-						</Section> );
-			}
-		}
+		reverse = booleanize( wichevr( reverse, mjAttribute( "reverse" ) ) );
 
-		if( !doubt( list, ARRAY ) ){
-			return ( <Section
-						{ ...this.props }
-					>
-						<Column>
-							<Text>
-								{ "Sorry, there's no details to be shown" }
-							</Text>
-						</Column>
-					</Section> );
-		}
+		backgroundColor = wichevr( backgroundColor, mjAttribute( "background-color" ) );
 
-		list = nbyx( list, count )
-			.map( ( row ) => filpos( row, 3, { "title": "", "label": "", "value": "" } ) );
+		foregroundColor = wichevr( foregroundColor, mjAttribute( "foreground-color" ) );
 
 		return ( <Wrapper
 					{ ...this.props }
-					padding="0px 0px 0px 0px"
-					full-width="full-width"
 				>
 					{
 						list.map( function onEachRow( row, index ){
 							return ( <Section
-										key={ `row-${ index }` }
+										key={ `detail-row-${ index }` }
+										full-width="full-width"
 										padding="0px 0px 0px 0px"
 									>
 										{
 											row.map( function onEachDetail( detail, index ){
 												return ( <Detail
-															{ ...detail }
 															key={ `detail-${ index }` }
-															count={ 3 }
+															title={ detail.title }
+															label={ detail.label }
+															value={ detail.value }
+															count={ count }
+															align={ wichevr( detail.align, align ) }
+															reverse={ wichevr( detail.reverse, reverse ) }
+															backgroundColor={ wichevr( detail.backgroundColor, backgroundColor ) }
+															foregroundColor={ wichevr( detail.foregroundColor, foregroundColor ) }
 														>
 														</Detail> );
 											} )
