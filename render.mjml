@@ -1,0 +1,9 @@
+<mjml>
+	<mj-body>
+		<mj-container>
+			<mj-detail-list
+				list="W3sidGl0bGUiOiJIZWxsbyIsInZhbHVlIjoid29ybGQifSx7InRpdGxlIjoiSGVsbG8iLCJ2YWx1ZSI6IndvcmxkIn0seyJ0aXRsZSI6IkxvcmVtIElwc3VtIiwidmFsdWUiOiJIZWxsbyBXb3JsZCJ9LHsidGl0bGUiOiJIb2xhIEFtaWdvIiwidmFsdWUiOiJIZWxsbyBXb3JsZCBZZWFoIn1d"
+			/>
+		</mj-container>
+	</mj-body>
+</mjml>
