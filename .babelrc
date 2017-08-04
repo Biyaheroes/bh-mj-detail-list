@@ -1,6 +1,11 @@
 {
 	"presets": [ "latest", "react" ],
-	"plugins": [ "transform-runtime", "transform-decorators-legacy" ],
+	"plugins": [
+		"transform-runtime",
+		"transform-decorators-legacy",
+		"transform-react-constant-elements",
+		"transform-react-inline-elements"
+	],
 	"sourceMaps": "both",
 	"retainLines": true
 }

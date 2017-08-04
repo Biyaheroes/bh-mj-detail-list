@@ -6,6 +6,7 @@ gulpfile.js
 *.png
 component*
 render*
+report.*
 test.*
 wdio.*
 webpack.*

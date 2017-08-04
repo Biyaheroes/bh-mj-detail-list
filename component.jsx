@@ -3,13 +3,32 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import DetailList from "./detail-list.js";
+import DetailList from "./detail-list.module.jsx";
 
-ReactDOM.render( 
+ReactDOM.render(
 	<DetailList
-		list="W3sidGl0bGUiOiJIZWxsbyIsInZhbHVlIjoid29ybGQifSx7InRpdGxlIjoiSGVsbG8iLCJ2YWx1ZSI6IndvcmxkIn0seyJ0aXRsZSI6IkxvcmVtIElwc3VtIiwidmFsdWUiOiJIZWxsbyBXb3JsZCJ9LHsidGl0bGUiOiJIb2xhIEFtaWdvIiwidmFsdWUiOiJIZWxsbyBXb3JsZCBZZWFoIn1d"
-		>
-		</DetailList>,
-		
-		document.getElementById( "root" )
-	);
+		list={
+			[
+				{
+					"title":"Hello",
+					"value":"world"
+				},
+				{
+					"title":"Hello",
+					"value":"world"
+				},
+				{
+					"title":"Lorem Ipsum",
+					"value":"Hello World"
+				},
+				{
+					"title":"Hola Amigo",
+					"value":"Hello World Yeah"
+				}
+			]
+		}
+	>
+	</DetailList>,
+
+	document.getElementById( "root" )
+);
