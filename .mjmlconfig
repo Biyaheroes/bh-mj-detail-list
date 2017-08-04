@@ -1,5 +1,7 @@
 {
 	"packages": [
+		"./node_modules/bh-mj-issue/issue.js",
+		"./node_modules/bh-mj-prompt/prompt.js",
 		"./node_modules/bh-mj-detail/detail.js",
 		"./detail-list.js"
 	]

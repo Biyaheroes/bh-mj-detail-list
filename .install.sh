@@ -1,20 +1,22 @@
 yarn add \
+arid \
 babel-runtime \
 bh-mj-detail \
+bh-mj-issue \
+bh-mj-prompt \
+booleanize \
 doubt \
 filpos \
 jquery \
 mjml \
-mjml-column \
 mjml-core \
 mjml-section \
-mjml-text \
 mjml-wrapper \
 nbyx \
 parseon \
-protype \
-sxty4 \
 react \
+sxty4 \
+wichevr \
 --save && \
 yarn add \
 babel-cli \
@@ -60,14 +62,18 @@ webpack-dev-server \
 yargs \
 --dev && \
 bower install \
+arid \
 bh-mj-detail \
+bh-mj-issue \
+bh-mj-prompt \
+booleanize \
 doubt \
 filpos \
 jquery \
 nbyx \
 parseon \
-protype \
-sxty4 \
 react \
+sxty4 \
+wichevr \
 --force-latest \
 --save
