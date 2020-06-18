@@ -49,7 +49,7 @@
     "doubt": "^0.29.0",
     "filpos": "^0.1.0",
     "jquery": "^3.2.1",
-    "mjml": "^3.3.3",
+    "mjml": "^4.6.3",
     "mjml-core": "^3.3.3",
     "mjml-section": "^3.3.3",
     "mjml-wrapper": "^3.3.3",
